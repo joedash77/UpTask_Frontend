@@ -4,7 +4,7 @@ import { Project, TeamMember, TeamMemberForm, teamMembersSchema } from "../types
 
 export async function findUserByEmail({projectId, formData} : {projectId: Project['_id'], formData : TeamMemberForm}) {
     try {
-        const url = `http://localhost:4000/api/projects/${projectId}/team/find`
+        const url = `/projects/${projectId}/team/find`
         const { data } = await api.post(url, formData)
         return data
     } catch (error) {
@@ -16,7 +16,7 @@ export async function findUserByEmail({projectId, formData} : {projectId: Projec
 
 export async function addUserToProject({projectId, id} : {projectId: Project['_id'], id : TeamMember['_id']}) {
     try {
-        const url = `http://localhost:4000/api/projects/${projectId}/team`
+        const url = `/projects/${projectId}/team`
         const { data } = await api.post<string>(url, {id})
         return data
     } catch (error) {
@@ -28,7 +28,7 @@ export async function addUserToProject({projectId, id} : {projectId: Project['_i
 
 export async function removeUserFromProject({projectId, userId} : {projectId: Project['_id'], userId : TeamMember['_id']}) {
     try {
-        const url = `http://localhost:4000/api/projects/${projectId}/team/${userId}`
+        const url = `/projects/${projectId}/team/${userId}`
         const { data } = await api.delete<string>(url)
         return data
     } catch (error) {
@@ -40,7 +40,7 @@ export async function removeUserFromProject({projectId, userId} : {projectId: Pr
 
 export async function getProjectTeam(projectId: Project['_id']) {
     try {
-        const url = `http://localhost:4000/api/projects/${projectId}/team`
+        const url = `/projects/${projectId}/team`
         const { data } = await api(url)
         const response = teamMembersSchema.safeParse(data)
         if(response.success) {
