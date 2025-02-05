@@ -84,6 +84,8 @@ export default function TaskList({ tasks, canEdit }: TaskListProps) {
         }
     }
 
+    console.log("Grouped Tasks:", groupedTasks);
+
     return (
         <>
             <h2 className="text-5xl font-black my-10">Tareas</h2>
