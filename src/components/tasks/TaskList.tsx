@@ -30,7 +30,7 @@ const statusStyles : { [key: string] : string } = {
     onHold: 'border-t-red-400',
     inProgress: 'border-t-blue-400',
     underReview: 'border-t-amber-400',
-    completed: 'border-t-emerald-400',
+    Completed: 'border-t-emerald-400',
 }
 
 export default function TaskList({ tasks, canEdit }: TaskListProps) {
@@ -55,7 +55,7 @@ export default function TaskList({ tasks, canEdit }: TaskListProps) {
         let currentGroup = acc[task.status] ? [...acc[task.status]] : []; //Se obtiene el arreglo actual del estado de la tarea, si ya existe una lista, se copia, sino se usa un array vacio
         currentGroup = [...currentGroup, task] // Se agrega la tarea actual al grupo correspondiente
         return { ...acc, [task.status]: currentGroup }; // Se devuelve una copia de acc, agregando el grupo actualizado
-    }, {...initialStatusGroups});
+    }, initialStatusGroups);
 
     const handleDragEnd = (e: DragEndEvent) => {
         const { over, active } = e
@@ -83,8 +83,6 @@ export default function TaskList({ tasks, canEdit }: TaskListProps) {
             })
         }
     }
-
-    console.log("Grouped Tasks:", groupedTasks);
 
     return (
         <>
