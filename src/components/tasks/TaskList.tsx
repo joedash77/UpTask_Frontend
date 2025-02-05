@@ -30,7 +30,7 @@ const statusStyles : { [key: string] : string } = {
     onHold: 'border-t-red-400',
     inProgress: 'border-t-blue-400',
     underReview: 'border-t-amber-400',
-    Completed: 'border-t-emerald-400',
+    completed: 'border-t-emerald-400',
 }
 
 export default function TaskList({ tasks, canEdit }: TaskListProps) {
