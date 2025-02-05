@@ -22,7 +22,7 @@ const initialStatusGroups: GroupedTasks = {
     onHold: [],
     inProgress: [],
     underReview: [],
-    Completed: [],
+    completed: [],
 }
 
 const statusStyles : { [key: string] : string } = {
