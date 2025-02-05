@@ -51,11 +51,11 @@ export default function TaskList({ tasks, canEdit }: TaskListProps) {
         }
     })
 
-    const groupedTasks = tasks.reduce((acc, task) => { // se recorren todas las tareas y organizan en los diferentes estados
-        let currentGroup = acc[task.status] ? [...acc[task.status]] : []; //Se obtiene el arreglo actual del estado de la tarea, si ya existe una lista, se copia, sino se usa un array vacio
-        currentGroup = [...currentGroup, task] // Se agrega la tarea actual al grupo correspondiente
-        return { ...acc, [task.status]: currentGroup }; // Se devuelve una copia de acc, agregando el grupo actualizado
-    }, initialStatusGroups);
+    const groupedTasks = tasks.reduce((acc, task) => { 
+        if (!acc[task.status]) acc[task.status] = []; // Asegura que existe la clave
+        acc[task.status].push(task);
+        return acc;
+    }, { ...initialStatusGroups }); // Copia para evitar referencias
 
     const handleDragEnd = (e: DragEndEvent) => {
         const { over, active } = e
