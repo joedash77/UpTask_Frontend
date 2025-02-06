@@ -3,5 +3,5 @@ export const statusTranslations : { [key: string] : string } = {
     onHold: 'En Espera',
     inProgress: 'En Progreso',
     underReview: 'En Revisión',
-    Completed: 'Completado',
+    completed: 'Completado',
 }
