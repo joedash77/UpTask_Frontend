@@ -9,7 +9,7 @@ import { toast } from 'react-toastify'
 import { updateStatus } from '@/api/TaskAPI'
 
 type TaskListProps = {
-    tasks: TaskProject[]
+    tasks: TaskProject
     canEdit: boolean
 }
 
