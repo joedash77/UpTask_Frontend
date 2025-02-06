@@ -44,7 +44,7 @@ export default function NavMenu({name} : NavMenuProps) {
               className='block p-2 hover:text-purple-950'
             >Mis Proyectos</Link>
             <button
-              className='block p-2 hover:text-purple-950'
+              className='block p-2 hover:text-purple-950 cursor-pointer'
               type='button'
               onClick={logout}
             >
