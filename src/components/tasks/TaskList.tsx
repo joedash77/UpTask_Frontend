@@ -95,7 +95,7 @@ export default function TaskList({ tasks, canEdit }: TaskListProps) {
                         <h3 
                             className={`capitalize text-xl font-light border border-slate-300
                             bg-white p-3 border-t-8`}
-                        ></h3>
+                        >{statusTranslations[status]}</h3>
 
                         <DropTask status={status}/>
 
